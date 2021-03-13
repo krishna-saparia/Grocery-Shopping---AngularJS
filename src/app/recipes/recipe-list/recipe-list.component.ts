@@ -9,7 +9,7 @@ import { EventEmitter } from '@angular/core';
 export class RecipeListComponent implements OnInit {
   @Output() recipeWasSelected = new EventEmitter<RecipesModel>();
   recipes: RecipesModel[] = [
-    new RecipesModel('A test recipe', 'Simply test', '19105402-food-ingredients-and-recipe-paper-on-white-background')
+    new RecipesModel('A test recipe', 'Simply test', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg')
   ];
   constructor() { }
 
