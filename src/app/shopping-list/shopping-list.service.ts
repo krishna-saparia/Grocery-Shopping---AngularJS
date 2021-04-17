@@ -14,8 +14,14 @@ export class ShoppingListService{
   }
 
   // tslint:disable-next-line:typedef
-  addIngredients(ingredient: Ingredient) {
+  addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
+
+  // tslint:disable-next-line:typedef
+  addIngredients(ingredients: Ingredient[]){
+    this.ingredients.push(...ingredients);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
 }
