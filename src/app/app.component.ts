@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'GroceryShopping';
-  loadFeature = 'recipe';
-  // tslint:disable-next-line:typedef
-  onNavigate(feature: string){
-    this.loadFeature = feature;
-  }
+  // loadFeature = 'recipe';
+  // // tslint:disable-next-line:typedef
+  // onNavigate(feature: string){
+  //   this.loadFeature = feature;
+  // }
 }
