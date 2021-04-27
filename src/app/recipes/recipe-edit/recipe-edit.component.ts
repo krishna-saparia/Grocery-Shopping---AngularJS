@@ -28,6 +28,7 @@ export class RecipeEditComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSubmit() {
+    console.log(this.recipeForm);
     // const newRecipe = new Recipe(
     //   this.recipeForm.value['name'],
     //   this.recipeForm.value['description'],
@@ -65,6 +66,10 @@ export class RecipeEditComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+  controls(){
+    return (this.recipeForm.get('ingredients') as FormArray).controls;
+  }
+  // tslint:disable-next-line:typedef
   private initForm() {
     let recipeName = '';
     let recipeImagePath = '';
@@ -90,7 +95,6 @@ export class RecipeEditComponent implements OnInit {
         }
       }
     }
-
     this.recipeForm = new FormGroup({
       name: new FormControl(recipeName, Validators.required),
       imagePath: new FormControl(recipeImagePath, Validators.required),
