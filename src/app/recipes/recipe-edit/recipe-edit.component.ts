@@ -55,21 +55,18 @@ export class RecipeEditComponent implements OnInit {
     );
   }
 
-  // tslint:disable-next-line:typedef
   onDeleteIngredient(index: number) {
     (this.recipeForm.get('ingredients') as FormArray).removeAt(index);
   }
 
-  // tslint:disable-next-line:typedef
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
-  // tslint:disable-next-line:typedef
   controls(){
     return (this.recipeForm.get('ingredients') as FormArray).controls;
   }
-  // tslint:disable-next-line:typedef
+
   private initForm() {
     let recipeName = '';
     let recipeImagePath = '';
@@ -81,7 +78,7 @@ export class RecipeEditComponent implements OnInit {
       recipeName = recipe.name;
       recipeImagePath = recipe.imgPath;
       recipeDescription = recipe.description;
-      if (recipe.ingredients) {
+      if (recipe['ingredients']) {
         for (const ingredient of recipe.ingredients) {
           recipeIngredients.push(
             new FormGroup({

@@ -3,7 +3,6 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {RecipesModel} from '../recipes.model';
 import {RecipeService} from '../recipe.service';
 
-
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
@@ -14,7 +13,7 @@ export class RecipeDetailComponent implements OnInit {
   id: number;
   constructor(private recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
 
-  // tslint:disable-next-line:typedef
+
   ngOnInit() {
     this.route.params
       .subscribe(
@@ -24,16 +23,16 @@ export class RecipeDetailComponent implements OnInit {
         }
       );
   }
-  // tslint:disable-next-line:typedef
+
   onAddToShoppingList() {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
-  // tslint:disable-next-line:typedef
+
   onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.route});
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
-  // tslint:disable-next-line:typedef
+
   onDeleteRecipe() {
     this.recipeService.deleteRecipe(this.id);
     this.router.navigate(['/recipes']);

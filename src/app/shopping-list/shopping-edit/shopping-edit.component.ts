@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Ingredient} from '../../shared/ingredients.model';
 import {ShoppingListService} from '../shopping-list.service';
 import {Subscription} from 'rxjs';
@@ -17,7 +17,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editedItem: Ingredient;
   constructor(private shoppinglistService: ShoppingListService) { }
 
-  // tslint:disable-next-line:typedef
   ngOnInit() {
     this.subscription = this.shoppinglistService.startedEditing
       .subscribe(
@@ -32,7 +31,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
         }
       );
   }
-  // tslint:disable-next-line:typedef
+
   onSubmit(form: NgForm) {
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
@@ -45,19 +44,17 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     form.reset();
   }
 
-  // tslint:disable-next-line:typedef
+
   onClear() {
     this.slForm.reset();
     this.editMode = false;
   }
 
-  // tslint:disable-next-line:typedef
   onDelete() {
     this.shoppinglistService.deleteIngredient(this.editedItemIndex);
     this.onClear();
   }
 
-  // tslint:disable-next-line:typedef
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

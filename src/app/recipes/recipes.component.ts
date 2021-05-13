@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class RecipesComponent implements OnInit {
   constructor() { }
 
-  // tslint:disable-next-line:typedef
   ngOnInit() {
 
   }
