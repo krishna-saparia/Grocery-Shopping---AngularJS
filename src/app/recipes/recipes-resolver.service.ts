@@ -16,7 +16,6 @@ export class RecipesResolverService implements Resolve<RecipesModel[]> {
     private recipesService: RecipeService
   ) {}
 
-  // tslint:disable-next-line:typedef
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const recipes = this.recipesService.getRecipes();
 
